@@ -33,6 +33,9 @@ function generateMarkdown(data) {
   // License link
   const licenseLink = renderLicenseLink(data.license);
 
+  // Google Drive link for the video clip
+  const googleDriveLink = 'https://drive.google.com/file/d/18x-MrpFJ-9Z-bH0gTbQ77PmwIW876xJJ/view';
+
   // Generate markdown template
   let markdownTemplate = `
 # ${data.title}
@@ -63,7 +66,6 @@ You can access more badges and their purposes at [shields.io](https://shields.io
   // Optional sections content
   if (data.installation) markdownTemplate += `\n## Installation\n\n${data.installation}\n`;
   if (data.usage) markdownTemplate += `\n## Usage\n\n${data.usage}\n`;
-  if (data.videoWalkthrough) markdownTemplate += `\n[Video Walkthrough](./assets/video/${data.videoWalkthrough})\n`;
   if (data.contribution) markdownTemplate += `\n## Contribution\n\n${data.contribution}\n`;
   if (data.testing) markdownTemplate += `\n## Testing\n\n${data.testing}\n`;
 
@@ -81,6 +83,14 @@ Email: [${data.email}](mailto:${data.email})\n\n`;
 
 This application is licensed under the ${data.license}.  
 For more information please view the [license description](${licenseLink}).
+
+`;
+
+  // Video walkthrough section
+  markdownTemplate += `
+## Video Walkthrough
+
+[Watch the video walkthrough](${googleDriveLink})
 
 `;
 
