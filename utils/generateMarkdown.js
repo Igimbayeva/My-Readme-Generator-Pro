@@ -2,14 +2,14 @@
 function renderLicenseBadge(license) {
   // Return the license badge based on the license type
   switch (license) {
-      case 'MIT License':
-          return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
-      case 'Apache License 2.0':
-          return '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
-      case 'BSD License':
-          return '![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)';
-      default:
-          return '';
+    case 'MIT License':
+      return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
+    case 'Apache License 2.0':
+      return '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
+    case 'BSD License':
+      return '![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)';
+    default:
+      return '';
   }
 }
 
@@ -17,28 +17,15 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   // Return the license link based on the license type
   switch (license) {
-      case 'MIT License':
-          return '[MIT License](https://opensource.org/licenses/MIT)';
-      case 'Apache License 2.0':
-          return '[Apache License 2.0](https://opensource.org/licenses/Apache-2.0)';
-      case 'BSD License':
-          return '[BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)';
-      default:
-          return '';
+    case 'MIT License':
+      return '[MIT License](https://opensource.org/licenses/MIT)';
+    case 'Apache License 2.0':
+      return '[Apache License 2.0](https://opensource.org/licenses/Apache-2.0)';
+    case 'BSD License':
+      return '[BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)';
+    default:
+      return '';
   }
-}
-
-// Function to render the license section of the README
-function renderLicenseSection(license) {
-  // Return the license section of the README based on the license type
-  return `
-## License
-
-${renderLicenseBadge(license)}
-
-This application is licensed under the ${license}.  
-For more information, see the ${renderLicenseLink(license)}.
-`;
 }
 
 // Function to generate markdown for README
@@ -76,6 +63,7 @@ You can access more badges and their purposes at [shields.io](https://shields.io
   // Optional sections content
   if (data.installation) markdownTemplate += `\n## Installation\n\n${data.installation}\n`;
   if (data.usage) markdownTemplate += `\n## Usage\n\n${data.usage}\n`;
+  if (data.videoWalkthrough) markdownTemplate += `\n[Video Walkthrough](./assets/video/${data.videoWalkthrough})\n`;
   if (data.contribution) markdownTemplate += `\n## Contribution\n\n${data.contribution}\n`;
   if (data.testing) markdownTemplate += `\n## Testing\n\n${data.testing}\n`;
 
