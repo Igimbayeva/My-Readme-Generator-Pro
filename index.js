@@ -53,3 +53,32 @@ const questions = [
       message: 'Enter your email address:',
     },
   ];
+
+  // Function to prompt the user for project information using the defined questions
+    function promptUser() {
+    return inquirer.prompt(questions);
+  }
+  
+  // Function to write README file
+    function writeToFile(fileName, data) {
+    return fs.writeFileSync(fileName, data);
+  }
+  // Function to initialize app
+    function init() {
+
+    // Prompt user for project information
+    promptUser()
+      .then((answers) => {
+
+        // Generate README content
+        const markdown = generateMarkdown(answers);
+          
+        // Write README file
+        writeToFile('README.md', markdown);
+        console.log('README.md successfully generated!');
+      })
+      .catch((err) => console.error(err));
+  }
+  
+  // Function call to initialize app
+  init(); 
